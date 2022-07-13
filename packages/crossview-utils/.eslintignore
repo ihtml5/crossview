@@ -1,0 +1,18 @@
+#helper
+helper/*
+
+# dependencies
+node_modules/*
+
+# production
+build
+dist
+
+# config
+config/*
+
+# test
+
+__test__
+
+*.log

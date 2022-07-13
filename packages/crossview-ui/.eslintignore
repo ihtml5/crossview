@@ -1,0 +1,7 @@
+node_modules
+/coverage
+!/.storybook
+/lib
+/paragraph-web-components.*
+_site
+webpack.config.js

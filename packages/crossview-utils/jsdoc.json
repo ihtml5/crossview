@@ -1,0 +1,13 @@
+{
+    "source": {
+      "include": [ "src/" ],
+      "exclude": [ "src/libs" ]
+    },
+    "plugins": ["plugins/markdown"],
+    "opts": {
+      "encoding": "utf8",
+      "destination": "./docs/",
+      "recurse": true,
+      "verbose": true
+    }
+  }

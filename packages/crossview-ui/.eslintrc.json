@@ -1,0 +1,102 @@
+{
+  "extends": [
+    "airbnb-base",
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/all",
+    "plugin:import/typescript",
+    "plugin:jest/all",
+    "plugin:lit-a11y/recommended",
+    "plugin:lit/all",
+    "plugin:wc/best-practice",
+    "prettier"
+  ],
+  "env": {
+    "browser": true
+  },
+  "overrides": [
+    {
+      "files": [
+        ".storybook/**",
+        "*.e2e.*",
+        "*.spec.*",
+        "*.stories.*"
+      ],
+      "rules": {
+        "@typescript-eslint/no-magic-numbers": "off",
+        "import/no-extraneous-dependencies": [
+          "error",
+          {
+            "devDependencies": true
+          }
+        ],
+        "max-lines": "off",
+        "max-lines-per-function": "off"
+      }
+    },
+    {
+      "files": [
+        "*.e2e.*"
+      ],
+      "env": {
+        "jest": true
+      },
+      "globals": {
+        "browser": true,
+        "context": true,
+        "jestPuppeteer": true,
+        "page": true
+      }
+    },
+    {
+      "files": [
+        "*.stories.*"
+      ],
+      "rules": {
+        "import/extensions": [
+          "error",
+          "never"
+        ]
+      }
+    }
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/no-magic-numbers": [
+      "error",
+      {
+        "ignore": [
+          0,
+          1
+        ]
+      }
+    ],
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/unbound-method": "off",
+    "lit/prefer-static-styles": "off",
+    "@typescript-eslint/member-ordering": "off",
+    "import/no-unresolved": "off",
+    "jest/no-hooks": "off",
+    "max-lines-per-function": "off",
+    "jest/prefer-expect-assertions": "off",
+    "jest/unbound-method": "off",
+    "class-methods-use-this": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "no-console": "off",
+    "max-lines": "off"
+  },
+  "settings": {
+    "import/extensions": [".js", ".mjs", ".jsx", ".ts", ".tsx", "css"]
+  }
+}

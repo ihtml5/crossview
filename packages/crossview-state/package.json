@@ -1,0 +1,100 @@
+{
+  "name": "crossview-state",
+  "version": "0.3.0",
+  "description": "Simple shared app state management for Lit",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "jsnext:main": "dist/index.es.js",
+  "scripts": {
+    "watch": "browser-sync start --proxy='localhost:8080' --files='*.html, dist/*.js'",
+    "dev": "DEV_MODE=true rollup -c --watch",
+    "build": "rm -rf build npm run lint && rollup -c",
+    "test": "jest",
+    "upload": "node scripts/upload-cdn.js",
+    "lint": "eslint *.js src/",
+    "lint:watch": "esw *.js src/ -w",
+    "update": "node scripts/updateReadme.js",
+    "precheck": "npm run build && npm run test && npm run update"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,mjs}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "scripts/*.{js,jsx,mjs}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "NODE_ENV=production lint-staged"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihtml5/crossview/crossview-state.git"
+  },
+  "keywords": [
+    "lit",
+    "lit-element",
+    "crossview",
+    "crossview-state",
+    "web components",
+    "javascript",
+    "typescript"
+  ],
+  "author": "ihtml5",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ihtml5/crossview/crossview-state/issues"
+  },
+  "homepage": "https://github.com/ihtml5/crossview/crossview-state#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.0",
+    "babel-jest": "^22.4.3",
+    "babel-plugin-array-includes": "^2.0.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "cross-env": "^7.0.2",
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint": "^5.6.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^3.6.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-watch": "^4.0.2",
+    "http-server": "^0.12.1",
+    "husky": "^4.2.3",
+    "jest": "^22.4.3",
+    "lint-staged": "^10.0.8",
+    "object-assign": "^4.1.1",
+    "prettier": "^1.14.3",
+    "regenerator-runtime": "^0.11.1",
+    "rollup": "^2.66.1",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-cleanup": "^3.0.0-beta.1",
+    "rollup-plugin-copy": "^3.3.0",
+    "rollup-plugin-eslint": "^4.0.0",
+    "rollup-plugin-hash": "^1.3.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-terser": "^5.3.1",
+    "rollup-plugin-uglify": "^2.0.1",
+    "rollup-watch": "^4.3.1",
+    "shx": "^0.3.2",
+    "typescript": "^4.5.5",
+    "uglify-es": "^3.1.0"
+  }
+}

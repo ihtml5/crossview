@@ -1,0 +1,50 @@
+{
+    "extends": "eslint-config-airbnb",
+    "env": {
+      "browser": true
+    },
+    "plugins": ["import"],
+    "parser": "babel-eslint",
+    "rules": {
+      "no-restricted-globals": ["off"],
+      "guard-for-in": ["off"],
+      "no-console": ["off"],
+      "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+      "import/prefer-default-export": ["off"],
+      "camelcase": ["warn"],
+      "func-names": ["warn", "never"],
+      "max-len": ["error", { "ignoreTemplateLiterals": true, "ignoreComments": true, "code": 150 }],
+      "new-cap": ["error", { "newIsCapExceptions": ["getApp"] }],
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": [
+            "benchmark/**",
+            "test/**", 
+            "tests/**",
+            "spec/**", 
+            "**/__tests__/**", 
+            "test.js",
+            "test-*.js", 
+            "**/*.test.js", 
+            "**/*.spec.js", 
+            "**/webpack.config.js", 
+            "**/webpack.config.*.js",
+            "**/rollup.config.js",
+            "**/rollup.config.*.js",
+            "**/gulpfile.js", 
+            "**/gulpfile.*.js",
+            "**/Gruntfile"
+          ],
+          "optionalDependencies": false
+        }
+      ]
+    },
+    "globals": {
+      "getApp": true,
+      "Page": true,
+      "wx": true,
+      "getCurrentPages": true,
+      "App": true
+    }
+  }

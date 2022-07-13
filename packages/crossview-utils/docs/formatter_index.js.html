@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: formatter/index.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: formatter/index.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { isFunction, noop } from '../shared';
+
+/**
+ * @description 格式化函数
+ * @module formatter
+ */
+/**
+ * @description 转换number类型
+ * @param {*} count
+ * @param {*} defaultVal
+ * @return {Number} 返回经过格式化的数值
+ */
+export const getNumber = (count, defaultVal) => {
+  const transformationNum = Number(count);
+  if (!isNaN(transformationNum)) {
+    return transformationNum;
+  }
+  return defaultVal;
+};
+
+/**
+ * @description 转换时间格式
+ * @param {Number|String} duration 
+ * @return {String} 返回经过格式化的时长
+ */
+export const formateDuration = (duration) => {
+  const strDuration = String(duration);
+  const duarr = String(duration).split(':');
+  if (/0:00:[0-9]/.test(strDuration)) {
+    return `${duarr[1]}:${duarr[2]}`;
+  }
+  const dlen = duarr.length;
+  if (String(duration).startsWith('00') || duarr[0] === '0') {
+    if (dlen === 3) {
+      return `${duarr[1]}:${duarr[2]}`;
+    }
+  }
+  if (/^[0-9]{1}:[0-9]{2}$/.test(duration) || /^[0-9]{1}:[0-9]{2}:[0-9]{2}$/.test(duration)) {
+    return `0${duration}`;
+  }
+  return duration;
+};
+export const formatterNum = (num, prefix) => {
+  if (!num) {
+    return '';
+  }
+  return `${num}${prefix}`;
+};
+
+/**
+ * @description 转换时长为xx小时xx分钟xx秒
+ * @param {Number|String} duration 
+ * @return {String} 返回经过格式化的时长
+ */
+export const formateDurationByMs = (duration) => {
+  const duarr = String(duration).split(':');
+  if (duarr.length === 1) {
+    const [sn] = duarr;
+    const snNum = parseInt(sn, 10);
+    return `${formatterNum(snNum, '秒')}`;
+  }
+  if (duarr.length === 2) {
+    const [mn, sn] = duarr;
+    const mnNum = parseInt(mn, 10);
+    const snNum = parseInt(sn, 10);
+    return `${formatterNum(mnNum, '分钟')}${formatterNum(snNum, '秒')}`;
+  }
+  if (duarr.length === 3) {
+    const [hn, mn, sn] = duarr;
+    const hnNum = parseInt(hn, 10);
+    const mnNum = parseInt(mn, 10);
+    const snNum = parseInt(sn, 10);
+    return `${formatterNum(hnNum, '小时')}${formatterNum(mnNum, '分钟')}${formatterNum(snNum, '秒')}`;
+  }
+  return 0;
+};
+
+/**
+ * @description 转换播放次数
+ * @param {Number|String} duration 
+ * @return {String} 返回经过格式化的次数
+ */
+export const formatePlayCount = (playcount) => {
+  const numplaycount = Number(playcount);
+  if (!isNaN(numplaycount)) {
+    if (numplaycount >= 10000) {
+      return `${(numplaycount / 10000).toFixed(2)}万次播放`;
+    }
+    if (numplaycount >= 100000000) {
+      return `${(numplaycount / 100000000).toFixed(2)}亿次播放`;
+    }
+    return numplaycount > 0 ? `${numplaycount}次播放` : '';
+  }
+  return '';
+};
+
+/**
+ * @description 获取对应的日期
+ * @param {String} datetime
+ * @returns {Object} 按照给定的datetime返回对应的日期
+ */
+const WEEKS = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+const ENWEEKS = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
+const ENMONTHS = [
+  'JANUARY',
+  'FEBRUARY',
+  'MARCH',
+  'APRIL',
+  'MAY',
+  'JUNE',
+  'JULY',
+  'AUGUST',
+  'SEPTEMBER',
+  'OCTOBER',
+  'NOVEMBER',
+  'DECEMBER',
+];
+export const getDetailByDay = (datetime, func = noop) => {
+  if (datetime &amp;&amp; isFunction(func)) {
+    return {
+      week: WEEKS[datetime.getDay()],
+      enWeek: ENWEEKS[datetime.getDay()],
+      enMonth: ENMONTHS[datetime.getMonth()],
+      day: datetime.getDate(),
+      year: datetime.getFullYear(),
+      month: datetime.getMonth(),
+    };
+  }
+  return {};
+};
+
+/**
+ * @description 获取当前的日期
+ * @param {String} data
+ * @returns {Object} 按照给定的datetime返回当天的日期
+ */
+export const getCurDateStr = () => {
+  const { year, month, day } = getDetailByDay(new Date());
+  const timeStr = `${year}${month}${day}`;
+  return timeStr;
+};
+
+/**
+ * @description 获取日期
+ * @param {Number|String} datetime
+ * @returns {Object} 按照给定的datetime返回的日期
+ */
+export const getDateByDot = (datetime) => {
+  const { year, day, month } = getDetailByDay(datetime);
+  return `${year}.${month + 1 &lt; 10 ? `0${month + 1}` : `${month + 1}`}.${day}`;
+};
+
+/**
+ * @description 获取中文的星期
+ * @param {String} datetime
+ * @returns {Object} 按照给定的datetime返回中文的星期
+ */
+export const getWeekByDay = (datetime, func = noop) => {
+  if (datetime &amp;&amp; isFunction(func)) {
+    return WEEKS[datetime.getDay()];
+  }
+  return {};
+};
+
+/**
+ * @description 获取英文的星期
+ * @param {String} datetime
+ * @returns {Object} 按照给定的datetime返回英文的星期
+ */
+export const getEnWeekByDay = (datetime, func = noop) => {
+  if (datetime &amp;&amp; isFunction(func)) {
+    return ENWEEKS[datetime.getDay()];
+  }
+  return {};
+};
+
+/**
+ * @description 获取英文的月份
+ * @param {String} datetime
+ * @returns {Object} 按照给定的datetime返回英文的月份
+ */
+export const getMonthByDay = (datetime, func = noop) => {
+  if (datetime &amp;&amp; isFunction(func)) {
+    return ENMONTHS[datetime.getMonth()];
+  }
+  return {};
+};
+
+/**
+ * @description 转换时长
+ * @param {Number|String} datetime
+ * @returns {String} 按照给定的duration返回总时长
+ */
+export const transformDuration = (duration) => {
+  if (!duration) {
+    return 0;
+  }
+  const totalTime = (Number(String(duration).split(':')[1]) * 60)
+    + (Number(String(duration).split(':')[2]));
+  return totalTime;
+};
+
+/**
+ * @description 提取某部分时长
+ * @param {Number|String} datetime
+ * @returns {String} 按照给定的duration返回某部分时长
+ */
+export const sliceDuration = (duration) => {
+  if (duration) {
+    const DURATION = String(duration);
+    if (DURATION.slice(0, 2) === '00') {
+      return DURATION.slice(3);
+    }
+    return DURATION;
+  }
+  return duration;
+};
+
+/**
+ * @description 获取时间细节
+ * @param {Number|String} timestamp
+ * @returns {Object} 按照给定的timestamp返回时间细节
+ */
+export const getTimeDetail = (timestamp, func = noop) => {
+  if (!isNaN(Number(timestamp))) {
+    const dateTime = new Date(Number(timestamp) * 1000);
+    try {
+      if (dateTime &amp;&amp; isFunction(func)) {
+        const hours = dateTime.getHours();
+        const minutes = dateTime.getMinutes();
+        return {
+          hours: `${hours &lt; 10 ? `0${hours}` : `${hours}`}`,
+          minutes: `${minutes &lt; 10 ? `0${minutes}` : `${minutes}`}`,
+        };
+      }
+    } catch (err) {
+      return {};
+    }
+  }
+  return {};
+};
+
+/**
+ * @description 获取时间文本
+ * @param {Number|String} time
+ * @returns {String} 按照给定的time返回时间文本
+ */
+export const getTimeText = (time) => {
+  const sjc = parseInt(time / 1000, 10);
+  let re = '';
+  if (sjc >= 60 * 60 * 24) {
+    re = `${parseInt(sjc / (60 * 60 * 24), 10)}天前`;
+  } else if (sjc > 60 * 60) {
+    re = `${parseInt(sjc / (60 * 60), 10)}小时前`;
+  } else {
+    re = `${parseInt(sjc / 60, 10)}分钟前`;
+  }
+  return re;
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-clipboard.html">clipboard</a></li><li><a href="module-cookie.html">cookie</a></li><li><a href="module-emitter.html">emitter</a></li><li><a href="module-error.html">error</a></li><li><a href="module-formatter.html">formatter</a></li><li><a href="module-helper.html">helper</a></li><li><a href="module-http.html">http</a></li><li><a href="module-normalize.html">normalize</a></li><li><a href="module-params.html">params</a></li><li><a href="module-reporter.html">reporter</a></li><li><a href="module-shared.html">shared</a></li><li><a href="module-storage.html">storage</a></li><li><a href="module-traversal.html">traversal</a></li><li><a href="module-ua.html">ua</a></li><li><a href="module-url.html">url</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Sun Jan 24 2021 16:37:16 GMT+0800 (中国标准时间)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

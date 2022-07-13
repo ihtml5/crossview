@@ -1,0 +1,9 @@
+.husky/_
+/LICENSE
+/coverage
+/paragraph-web-components.*
+/index.html
+/lib
+_layouts/compress.html
+_site
+.jekyll-cache

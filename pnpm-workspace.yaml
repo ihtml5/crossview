@@ -1,0 +1,6 @@
+packages:
+  - "local_modules/*"
+  - "packages/*"
+  - "docs/*"
+  - "demo/*"
+  - "docs/lego/vite"
