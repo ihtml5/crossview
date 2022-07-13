@@ -11,7 +11,6 @@ module.exports = {
     "components/paragraph": './src/components/paragraph/index.ts',
     "components/abstract": './src/components/abstract/index.ts',
     "components/image": './src/components/image/index.ts',
-    "components/video": './src/components/video/index.ts',
     "components/editor": './src/components/editor/index.ts',
     "components/bold": './src/components/bold/index.ts',
     "components/heading": './src/components/heading/index.ts',
