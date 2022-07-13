@@ -1,0 +1,87 @@
+export const ToolbarConfig: Record<string, Record<string, string>> = {
+    toggleBold: {
+        text: '加粗',
+        icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA8klEQVRIS92VwQ2CQBBF/5RgB1iBlGArHCBc7UA78MrnslYgJWgFhg60A+4krCFBs4ksS3bxwp535838+TMr+PORP8fHigFZlmmbfFrrG4CqbduLUqqZktkq0RTgE1BEVFEUSRCA5E8SeZ5HXddVAHYADiTPNoizgjFAHyxN01hEHgDuJPeLA/qAg4xPktvFAUYFL5LRooChB1cAsdY6KctSeQMck96Q3AS5yLVKXFb1dtFcq3oD5lo1CGBYFbZ5CQIYVq1JxmP98gaYVgVwInn0ArhcBMCaff/WWcEEoO5Xti3z78adkWHQlRV/mUG6GI/f1xGPGXfMUfEAAAAASUVORK5CYII=',
+        priority: '1',
+    },
+    toggleItalic: {
+        text: '斜体',
+        icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA8klEQVRIS+WUsRHCMAxFv7MAsAEbMAJhEqBR3MEGwARAlyhNmATYgA1YAdoUNmeO3KUhloHcwfErFbKe9aWTQstSLdfHnwCIyDZZycxPnRBZ1Dqg/vsK1vTrer6og+qB1jo2xuwBHJk5lmxgEICI5gDWAHbMPPk4IEmSjbV2BmDFzMuPA4joAGAYRdEoTVMXexVq0QVApyzLXlEULvZKDNBa940xZwBXZu56Kz8SQgDBG+QYYgARuaEulFLbLMvcNokUAigAjK210zzPXSxSCOAEYBCyQaEW3Q+e9ERU7TV28M6R+w6AaIqeJPGQX4X9PuAGb7RcGV3nU+wAAAAASUVORK5CYII=',
+        priority: '2',
+    },
+    toggleStrike: {
+        text: '中划线',
+        icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABYElEQVRIS+1UwVECQRDs4ep4YwReBmAGhKAZnA+27okRgBngj5r9HBGIEUgGQgRqBOL3KHassRZKS/YOjsKPTtV+bm+ne3p6hnDioBPnxx8AyLIsEZGBiHQBJF7SOYAXANOiKB7yPF+GpC6VKMuyrnPuHkCrpFe3zDw8GCBN01az2Xz2yV9FZBhFkbLWk6zX64SIUgCzWgDGmEsAyh5FUZyVyVDmxKBExhgtewBgzswXde1cBrCtQET61tq7OiClTTbGqFvaPvGna0RkYq3V73vF7w6aMUb2olXxEzNviX+r4OQAh7Dv9XodInryb66Yebrr/VE9+GKC4DQHAXSSlVFowPykv3nWN8w8OqgCv4ceiShXezrnlqvVahHHcZuIdOn1AXQAvDcajc54PFYb/4hgBRuAqr6IyLW1VknsjKptmjjndKL1KOtzn2VBRDMiGoWYb9COanJVdXr/D1Cp0gcK8IoZIJc0hAAAAABJRU5ErkJggg==',
+        priority: '3',
+    },
+    toggleUnderline: {
+        text: '下划线',
+        icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA+UlEQVRIS+2VwQ2CQBBF/3LgqqXYgdqBdrAe2NCFLXgkw8EtgQ7UDrQS9QqBMWMgMeoCStCYuCcOM/P+/ux8FHo+quf5+B7AGMNyOyKqFdFU52xuaqysbar7A/C36Lef6QnAoG7RtNZD3/ePAM5ENHwWO3V7sAUw9jxvGkWRfD+cMAwnRVFsAOyIaPISIAgCrZRaA0iIaP6s2RhzFcHMiziO7UsAKa4GCISZV1mWHay1J1Ge5/lSKSWqneplRm2QlR4notIR67s0TWcCdcV+q7gu7dIARuWgPTNbly23sFaALj+lzwOq8HpX9f3ePNygd8C7yju9oi7QC/xWmhkiFSNgAAAAAElFTkSuQmCC',
+        priority: '3',
+    },
+    toggleCode: {
+        text: '代码',
+        icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABg0lEQVRIS9WVwVHDMBBF//qQK6ECQgVAB6EC0gHOwRvfAh1ABSQ3e33AdBAqICWECoAKgKsOFqNMkpEdWxaeyQzsUV79p12tvgkHDjqwPv4ugJm/ABwFQXCaJMl7Uyc6VRBFUUhEjwBeReTc1eaugAURXQG4FZHZrwHMfKeUmuV5btpQijAM+71e79MsKqWOTc5mbSoi99X8vQqYOQdwDWAlIhfVDcx8A+BBa/2cZdnIfGfmFYAzIsrTNB3be0oASxxa63GWZQZWiq2Y/d26E1QhO4CPeBzHg6Io3gB8i0jfJjdB1gAfcZM3mUxmWuspgCcRCavV1UHIV3xzEDPvJ0EQXCZJsqybniqE7IWmvhuhOI6HRVG8APgQkUHTaFb11i3ygWwrJaJ5mqZmkvaiTmd3yW2QNmto2l8a06akNmtwHW7vodWJRVHktIa6t7HtX60XMfNIKbW0bKBkDQ32MRSRRatV+FiDy9y6ANY+4xphF9Bp1y5r8K2i0//AV9zk/X/AD11hFotSnqDhAAAAAElFTkSuQmCC',
+        priority: '4',
+    },
+    unsetAllMarks: {
+        text: '清除样式',
+        icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABQElEQVRIS72U0U2EQBCG/yWBZ0ugA68ErgM7EB92QxdaBpl9ECtQK/CuAq+EswOf2YQ1Y8TACexwcM7TksB8+8/8PwoXLnXh/vh/gNZ645w7VlX1uYa6ngJurpR6A3Cs63rLEK11rpR6lMKIqNez95Dn+VWSJDsA1wAO50AmAXzLMUirwBjj+XzaaEzh4JInlPAI3wHsiSiTjG3URYFxZUSULwJMjYvhUpcFcxDaSUhFECBZ/BREBOAGPxnhBXP9WngVBdykKIqsaRoOYVsiiFiBMeYBwD2AJwCb0zDOysHQy8aYCsCt9/7OOfcylPih7+YoOPCtoyjalmW5k7prDuDPL0ICEQE6DvogorQ7ihBEBDDG3AB49t6/Wmv53KsOJPXeZ9ZaHud3iQAhr7dhjOM47TZfFbDYphIVi2x6LuALTLzWGRSgpj0AAAAASUVORK5CYII=',
+        priority: '5',
+    },
+    setParagraph: {
+        text: '段落',
+        icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAA7ElEQVRIS+2VTQ6CMBCF30DoFo7iDdQb6Anshp6HJSkLjyDewCPoSXRJwqJkCE0AMaKWGIxdNu37Om9+Sph40cT6+HFAHMcSwI6IFgCiMXZqrTuuDFokpYyCIDgQ0WqMaPvMKIBS6gRgaYw5+r6fFEVxFkJcWagtoJQy/b3+g+4iYFuIaM/iWZZt7IUhsbcA9vWe563TNOVI6uUScAMQ9r2cFaBO8GQW2SQDyLXWW+c5aBJaR8EQY0xSluXFWZkygBtNCJE3kE5pf9wHbbXGLh4XPCpCJ432aDQ4K9M/4Omw+5pFr/4L9vz8/+QKDxGxGV0bTkAAAAAASUVORK5CYII=',
+        priority: '7',
+    },
+    toggleBulletList: {
+        text: '有序列表',
+        icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAA6UlEQVQ4T+2UsQ3CQAxFvxv6FCyRgo6aMESoKBNnAAYg9ExwOtHQMUWQEBvQsAI72ChRDoUIIiUHBRKuXJyf7P99JgBg5oOqjsvcJ4joSDUw9wG5WlU9VcBPxo8A/6Z4mf4dl31MIaKbMWbBzDGA0P2UNQDXrbbyUoLOSYwxOTPnqjobPHKSJJG1tnCCDwbGcTwKgsCKyM4bmKbpFIAloomIzN8Cu0xxomdZFqrqpXFZHuNWIhNFqlo0TWnu35O2pej1mdsDWNYPNy8W9tzbFGbeAli1R3bw3sC6UxaRa1NDL2BZ3F4bB7wD7xV+LtNr15gAAAAASUVORK5CYII=',
+        priority: '8',
+    },
+    toggleOrderedList: {
+        text: '无序列表',
+        icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAw0lEQVRIS+1VsRHCMAx8u3LJBsAEhAnIBqyQxjqP5FOajMAIZAOzQUagdBOHcwF3cEnBxXYVDfCvl14vgcwlMuOjLIEx5jCO4xVA37atS6HuSwERDQD2ABwznyMBEU3/EjHzB3eJ4MHMVXICrXUlhKillDdrbVSzusoueXW7MwBlFWw2fa9g8Q42m87ZvLhN6xDCRUrZW2vvKQ5vKewGZj4mDzsiij/gBCBPmjZNs1NKVd5713XdM/mIUgD+YpR1UQ4FL0n1YBlWLJqIAAAAAElFTkSuQmCC',
+        priority: '9',
+    },
+    toggleCodeBlock: {
+        text: '代码块',
+        icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABbUlEQVRIS82VwVWEMBCG/9CAduBagXYgW4F2IHvIwE2txPUGk4NrB1qBawdagdqBNsD4hkd8WcRd2AernIBk/u+fySQxGPkxI+tjdwAiWgI4GSIjEVk656aq9Z0BEckQ4l6DmSvtHwA/sC3MG/2/ACK6BHAtIg/OubNmpr0ysNYmzrlFKEJEzwCORGSmY805nQFEpMLnxphFURQzhWRZNinL8hXAJzPvt83pBPCBKuqd6nuapnMRuQBwx8yJujfG3FbdUhvZCNBgdd4U128iegNwEEXRNM9z3TdoQkQk0f+/dpE69q5C91mWxWVZPgJ4Z+aJX5cQEMaubdNmkC5mUO+boii0k1bcezMbS+TJAaSqNxF9ANiLougwz3MtlZasaoQw086AumtirXUAe2Hm47BttXR+PWpodeT02snW2ntjzCmAK2aerztGemWwzXn094BtXLfFtK3BYBcOgCdmjlfug6GcN3V2dyePlcEXeQwfKH2GZZwAAAAASUVORK5CYII=',
+        priority: '9',
+    },
+    toggleBlockquote: {
+        text: '引用',
+        icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABOElEQVRIS+2VwVHDMBBFvw4+EyogHZAOSAmhAszBa98YKgAqIOfVxekgJSQdpAOgA7jq4GV2xszYWLKXYXyLj9LzPml3JTnM/LmZ4+MsmMzwaIqIaAPgFcCOmZ9T0ca4pICIagB3bdBHZt7GBFNcVEBEBwA3AL5EZO29PyWCT3IDARFpKp4MwU1cT1BV1bJpmrd2tS+pvFs5jdMTlGW5FZEHnQghXNZ1/RlLjZUbCIhIc30N4CQitXNuISIH7/2xK7JyMYEkWnHPzLc/c0Rk4v4igIjce++1dTEi6HExwTuAq8Qujsy8bgUmLiboHq7fnq7AxA0EbftpoS8iu9DrItdxKzcQ6EBRFCvnnJ7QruQjhLDqtq2Vi14VeZ4vsizbOOeW2rLMvI/VxcKdH5z/PTiTfxuA2WvwDUhB0hlfYK+EAAAAAElFTkSuQmCC',
+        priority: '10',
+    },
+    setTextAlignLeft: {
+        text: '左对齐',
+        icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAXElEQVRIS2NkoDFgpLH5DMPMgrS0tP/UCLJZs2bBQwYliGhuATVcj27GaCSDQwQ5UvEGEbmRTLQFo5GMLQTom9HIjWR0l+MsKkYjmWaRTHRGIzeSibZgNJKxhQAAlPggGYqQh7IAAAAASUVORK5CYII=',
+        priority: '11',
+    },
+    setTextAlignCenter: {
+        text: '居中对齐',
+        icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAYElEQVRIS2NkoDFgpLH5DMPMgrS0tP/UCLJZs2bBQwYliGhuATVcj27GMItkmPfIjQvkyIWZhTWIaG4BNSN7mEUyuWGPHqSjOZmkRDYwqYjcyB7NySRFLt7CjiyTcGgCABT4IBlG2UAUAAAAAElFTkSuQmCC',
+        priority: '11',
+    },
+    setTextAlignRight: {
+        text: '右对齐',
+        icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAVElEQVRIS2NkoDFgpLH5DMPMgrS0tP/UCLJZs2bBQwYliGhuATVcj27GMItkdO+RGyc4I5nuFlAj0odZJJMbqehBOZqTSUpcA5uKyI300Zw8uCIZAJTpIBnV//6iAAAAAElFTkSuQmCC',
+        priority: '11',
+    },
+    setTextAlignBetween: {
+        text: '两端对齐',
+        icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAVUlEQVRIS2NkoDFgpLH5DMPMgrS0tP/UCLJZs2bBQwYliGhuATVcj27GaCRjDdXRSCYpsdE3FdE8o9HcApICl0jF9I0DIh1FkjL6lqajkYwtcmieigAhOCAZaZhJ4gAAAABJRU5ErkJggg==',
+        priority: '11',
+    },
+    undo: {
+        text: '撤销',
+        icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAUCAYAAABmvqYOAAABlElEQVRIS7WUP0sDQRDF31zYgCBioZUWolb6AUSxSOsHUBAEE0x2TzvBUtDGUrv8uTkrwT9o5ycQhGipVtoLsdDKOjey0Qu5eEUunlvezfu9YefNEmKO1voSwDIzU9z/Xr/9EodgAFfMvNIrKK4uAk8TbM3a8LTBbfh/gFvwECwiN33eb4OIHkTk2ff9606Ghd8DmOsTHJER0W0mk1mpVCpvrc6NMTMiYqM3C2CXmQ+SGLmuO9FsNnNEtAFg0WqVUiPlcvmjNdAugx1mPkxiENYaY1ZF5CyMcTstnQZEtOl5Xq0fA631EYBtIlqP5LzTQETWfN8/TWpgjJkXkbqInP/a0E6Dftdfa/0O4PvOu08+nx/OZrMDzNxI2rmt11o/Apj808MUZ+y67lgQBK8A6qnDS6XSFhGVRaSWKrxQKIwqpe4ATAVBMJ8aXGttt9zGcAFAiZmPI/BisZhzHCeXcIhDAMYBLAEYBHDBzKuRJ/dnyvsA9hLCbfmniDw5jsOe552E+u7ObQfTSeBKqUa1Wn2J03wBHgqkzhih77AAAAAASUVORK5CYII=',
+        priority: '12',
+    },
+    redo: {
+        text: '重做',
+        icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABkElEQVRIS+2UP0sDQRDF30zSKRY2WolgZyUWFoLgVxBRrBSS2xUiQREEK/EDCKJCuJ07KzsLQXuxELESQVAbUdBOsJUUgZEEE5IYuTuSFIJb7bJv34+df4QuL+qyP/4BlQhba7eZueD7/ntzyNsOked508x8oap3zLzunDuvh3QMUDVV1bUgCPaq544Dvo1DETHl/Q+A53kDzLwJYBrAWBtlvCwi0gCw1s4BOAZwQ0T3qvoSAzAMYKlJ9y4iAw0/MMZkiOiQiHaccxsxjCuSapLr9PsistqQg1wu11sqlR4BXIvIfFzzZoCqLgZBcPSjiowxk0R0xczjvu/fJgHk8/m+YrF4qqpbYRhetuwDa+0agF0APSLymQQQpa0k2RgzQ0Qn6XR6qFAovEU9SnJfAVhrRwA8EdGsc+4kiUGUtlam1tozABMiMhj1KMl9DZDNZvtTqdRHeaaoaiYMw5skRr9pGxrtu4sPAJQb7llVX+NAmHnFOffQSttyFhljFgBMARjtCiCOaVxN29M0CvT3AV98PIMZ0mYfggAAAABJRU5ErkJggg==',
+        priority: '13',
+    }
+}
