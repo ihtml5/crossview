@@ -11,14 +11,14 @@ export default [
     input: './src/index.js',
     output: [
       {
-        file: './build/index.js',
+        file: './dist/index.js',
         format: 'umd',
         exports: 'named',
         name: 'crossviewUtils',
         sourcemap: false,
       },
       {
-        file: './build/index.es.js',
+        file: './dist/index.es.js',
         format: 'es',
         exports: 'named',
         name: 'crossviewUtils',
