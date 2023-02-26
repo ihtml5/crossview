@@ -1,15 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
+import { useImStore } from '../../store/im';
+
 function App() {
+  const unreadCounts = useImStore((state: any) => state.unreadCounts);
+  const increaseUnReadCounts = useImStore((state: any) => state.increaseUnReadCounts);
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+        <p onClick={increaseUnReadCounts}>
+        increaseUnReadCounts
         </p>
+        {unreadCounts}
         <a
           className="App-link"
           href="https://reactjs.org"
