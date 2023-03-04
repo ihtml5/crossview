@@ -1,0 +1,8 @@
+.bold {
+    color: green;
+    font-weight: 800;
+}
+
+:global(crossview-ui-bold) {
+  color: blue;
+}
