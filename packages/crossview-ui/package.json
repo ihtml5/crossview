@@ -14,7 +14,8 @@
     "format": "prettier --write --single-quote src/components/*/ui-*",
     "test": "jest integration --config=jest.config.js",
     "test:coverage": "jest --coverage",
-    "test:e2e": "JEST_PUPPETEER_CONFIG=jest-puppeteer.config.cjs jest"
+    "test:e2e": "JEST_PUPPETEER_CONFIG=jest-puppeteer.config.cjs jest",
+    "watch": "webpack --config webpack.config.js && npm run analyze"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",

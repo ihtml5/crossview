@@ -1,6 +1,6 @@
 import type { TemplateResult } from 'lit';
 import { css, html, LitElement, nothing } from 'lit';
-import { property } from 'lit/decorators';
+import { property } from 'lit/decorators.js';
 
 export class CrossViewUIImage extends LitElement {
   public static styles = css`

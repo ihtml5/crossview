@@ -1,0 +1,1 @@
+export { CrossViewUIHeading } from './ui-heading';

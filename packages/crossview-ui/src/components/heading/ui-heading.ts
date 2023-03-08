@@ -1,14 +1,15 @@
 import { LitElement, html, css } from 'lit';
-import { unsafeHTML } from 'lit/directives/unsafe-html';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import type { TemplateResult } from 'lit';
-import { property } from 'lit/decorators';
+
+import { property } from 'lit/decorators.js';
 
 export class CrossViewUIHeading extends LitElement {
 
   @property({ type: String })
   level = 'h1';
-
-  static override styles = css`
+  
+  public static styles = css`
   .crossui-headingH1 {
   display: inline-block;
   font-size: 0.26rem;
@@ -36,9 +37,11 @@ export class CrossViewUIHeading extends LitElement {
   font-style: normal;
   line-height: normal;
   color: #222;
-}
+}`;
 
-  `;
+createRoot() {
+  return this;
+}
 
   render(): TemplateResult {
     return html`
