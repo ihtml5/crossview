@@ -107,15 +107,15 @@ module.exports = function (webpackEnv) {
   // common function to get style loaders
   const getStyleLoaders = (cssOptions, preProcessor) => {
     const loaders = [
-      isEnvDevelopment && require.resolve('style-loader'),
-      isEnvProduction && {
-        loader: MiniCssExtractPlugin.loader,
-        // css is located in `static/css`, use '../../' to locate index.html folder
-        // in production `paths.publicUrlOrPath` can be a relative path
-        options: paths.publicUrlOrPath.startsWith('.')
-          ? { publicPath: '../../' }
-          : {},
-      },
+      require.resolve('style-loader'),
+      // isEnvProduction && {
+      //   loader: MiniCssExtractPlugin.loader,
+      //   // css is located in `static/css`, use '../../' to locate index.html folder
+      //   // in production `paths.publicUrlOrPath` can be a relative path
+      //   options: paths.publicUrlOrPath.startsWith('.')
+      //     ? { publicPath: '../../' }
+      //     : {},
+      // },
       {
         loader: require.resolve('css-loader'),
         options: cssOptions,
@@ -200,7 +200,11 @@ module.exports = function (webpackEnv) {
       : isEnvDevelopment && 'cheap-module-source-map',
     // These are the "entry points" to our application.
     // This means they will be the "root" imports that are included in JS bundle.
-    entry: paths.appIndexJs,
+    entry: {
+      '.': path.resolve(__dirname, '../src/index.tsx'),
+      './cfc': path.resolve(__dirname, '../src/components/cfc'),
+      './protable': path.resolve(__dirname, '../src/components/protable')
+    },
     output: {
       // The build folder.
       path: paths.appBuild,
@@ -209,12 +213,8 @@ module.exports = function (webpackEnv) {
       // There will be one main bundle, and one file per asynchronous chunk.
       // In development, it does not produce real files.
       filename: isEnvProduction
-        ? 'static/js/[name].[contenthash:8].js'
+        ? '[name]/index.js'
         : isEnvDevelopment && 'static/js/bundle.js',
-      // There are also additional JS chunk files if you use code splitting.
-      chunkFilename: isEnvProduction
-        ? 'static/js/[name].[contenthash:8].chunk.js'
-        : isEnvDevelopment && 'static/js/[name].chunk.js',
       assetModuleFilename: 'static/media/[name].[hash][ext]',
       // webpack uses `publicPath` to determine where the app is being served from.
       // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -237,7 +237,7 @@ module.exports = function (webpackEnv) {
       buildDependencies: {
         defaultWebpack: ['webpack/lib/'],
         config: [__filename],
-        tsconfig: [paths.appTsConfig, paths.appJsConfig].filter(f =>
+        tsconfig: [paths.appTsConfig, paths.appJsConfig]?.filter(f =>
           fs.existsSync(f)
         ),
       },
@@ -291,6 +291,10 @@ module.exports = function (webpackEnv) {
         // This is only used in production mode
         new CssMinimizerPlugin(),
       ],
+    },
+    externals: {
+      react: "React",
+      "react-dom": "ReactDOM"
     },
     resolve: {
       // This allows you to set a fallback for where webpack should look for modules.
@@ -642,7 +646,7 @@ module.exports = function (webpackEnv) {
             manifest[file.name] = file.path;
             return manifest;
           }, seed);
-          const entrypointFiles = entrypoints.main.filter(
+          const entrypointFiles = entrypoints.main?.filter(
             fileName => !fileName.endsWith('.map')
           );
 

@@ -1,29 +1,31 @@
 
-// import { DireflowComponent } from "direflow-component";
+import { DireflowComponent } from 'direflow-component';
 import { useState } from "react";
-import React from "react"
-import * as ReactDOM from "react-dom/client";
-import reactToWebComponent from "react-to-webcomponent";
+import { Card } from 'antd';
 
-import './cfc.css';
+import styles from './cfc.module.css';
 
+const { Meta } = Card;
 function Kwr() {
     const [count, setCount] = useState(0);
-    return <div onClick={() => setCount(count + 1)} className="cfc">{count}</div>
+    return   <Card
+    hoverable
+    style={{ width: 240 }}
+    cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+  >
+    <div onClick={() => setCount(count + 1)} className={styles.cfc}>{count}</div>
+    <Meta title="Europe Street beat" description="www.instagram.com" />
+  </Card>;
 }
-const KwrWc = reactToWebComponent(Kwr, React, ReactDOM, {
-  shadow: true,
-});
 
-if (!window.customElements.get('kwr-ui-interactive')) {
-  window.customElements.define("kwr-ui-interactive", KwrWc); 
-}
-// const KwrWc = DireflowComponent.create({
-//   component: Kwr,
-//   configuration: {
-//     tagname: 'kwr-ui-interactive',
-//   },
-// });
+
+const KwrWc = DireflowComponent.create({
+  component: Kwr,
+  configuration: {
+    tagname: 'kwr-ui-interactive',
+    useShadow: false,
+  },
+});
 
 declare global {
     namespace JSX {
