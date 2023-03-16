@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A monorepo example with pnpm and changesets.",
   "scripts": {
-    "watch": "pnpm --filter 'crossview-ui' --parallel -r run watch",
+    "watch": "pnpm --parallel -r run watch",
     "build": "pnpm -r run build",
     "changeset": "changeset",
     "version": "changeset version",
@@ -17,10 +17,10 @@
   "packageManager": "pnpm@7.18.0",
   "license": "MIT",
   "dependencies": {
+    "crossview-react": "link:packages/crossview-react",
     "crossview-ui": "workspace:^0.2.9",
     "direflow-component": "^3.5.5",
     "lit": "^2.2.3",
-    "react-to-webcomponent": "^1.7.3",
     "vue": "^3.2.47"
   }
 }
