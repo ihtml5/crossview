@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
-const dist = path.resolve(__dirname, './');
+const dist = path.resolve(__dirname, './dist');
 const resolve = dir => path.join(__dirname, `./${dir}`);
 
 module.exports = {

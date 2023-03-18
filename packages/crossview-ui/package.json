@@ -1,6 +1,7 @@
 {
   "name": "crossview-ui",
   "version": "0.2.9",
+  "main": "dist/index.js", 
   "scripts": {
     "lint": "eslint src/**/*.ts",
     "analyze-components": "web-component-analyzer analyze 'src/**/*.{js,ts}' --outFile custom-elements.json",
