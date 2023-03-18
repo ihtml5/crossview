@@ -1,0 +1,16 @@
+{
+  "name": "crossview-renderer",
+  "version": "0.1.0",
+  "description": "renderer for crossview",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "keywords": [
+    "renderer",
+    "react",
+    "crossview"
+  ],
+  "author": "ihtml5",
+  "license": "MIT"
+}
