@@ -47,16 +47,13 @@ The most simple and common way of including the components into an application i
 
 
 ```js
-// include bundle through module import
 import 'crossview-ui'
-// if using JS, css can also be imported. if using TS, use html stylesheet as shown below
 import 'crossview-ui/crossview-ui-styles.css'
 ```
 
 *or*
 
 ```html
-<!-- include bundle and styles in html file -->
 <script type="text/javascript" charset="utf-8" src="node_modules/crossview-ui/index.js"></script>
 <link rel="stylesheet" type="text/css" href="node_modules/crossview-ui/crossview-ui-styles.css">
 ```
@@ -67,14 +64,13 @@ import 'crossview-ui/crossview-ui-styles.css'
 // include individual components and styles through module import
 import 'crossview-ui/src/components/paragraph'
 import 'crossview-ui/src/components/image'
-// if using JS, css can also be imported. if using TS, use html stylesheet as shown below
+
 import 'crossview-ui/crossview-ui-styles.css'
 ```
 
 *or*
 
 ```html
-<!-- include single components and styles in html file -->
 <script type="text/javascript" charset="utf-8" src="node_modules/crossview-ui/src/components/paragraph/index.js"></script>
 <script type="text/javascript" charset="utf-8" src="node_modules/crossview-ui/src/components/abstract/index.js"></script>
 <link rel="stylesheet" type="text/css" href="node_modules/crossview-ui/crossview-ui-styles.css">

@@ -77,15 +77,18 @@ module.exports = {
     },
   },
   devServer: {
-    contentBase: dist,
+    contentBase: path.resolve(__dirname, '../public'),
     compress: false,
-    port: 8082,
-    host: '0.0.0.0'
+    port: 3000,
+    progress: true,  // 显示打包的进度条
+    open: true,
+    host: 'localhost',
+    hot: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "public/index.html",
-      inject: false
+      inject: true,
     }),
   ]
 };

@@ -43,7 +43,7 @@ export class CrossViewUIAbstract extends LitElement {
     return html`
       <div class="crossview-ui-summary">
         <div class="crossview-ui-start-quotation-mark"></div>
-        ${this.abstract}
+        ${this.abstract}4444466667777vvvvvvv
         <div class="crossview-ui-end-quotation-mark"></div>
         <div class="crossview-ui-end-quotation-mark-placeholder"></div>
       </div>

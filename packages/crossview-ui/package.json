@@ -100,9 +100,6 @@
     "webpack-hot-middleware": "^2.24.3",
     "webpack-manifest-plugin": "^4.0.2"
   },
-  "peerDependencies": {
-    "lit": "2.x.x"
-  },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
       "prettier --write"
@@ -116,6 +113,7 @@
     "@tiptap/starter-kit": "^2.0.0-beta.185",
     "loadjs": "^4.2.0",
     "mitt": "^3.0.0",
-    "postcss-lit": "^0.4.3"
+    "postcss-lit": "^0.4.3",
+    "lit": "2.x.x"
   }
 }
